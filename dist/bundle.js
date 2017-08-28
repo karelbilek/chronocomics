@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "904b9e21620c60971830"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "604e99dcabd56f2d5891"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -16600,10 +16600,14 @@ var Filter = exports.Filter = function (_React$PureComponent) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'filter' },
+        {
+          className: 'filter'
+        },
         _react2.default.createElement(
           'span',
-          { className: 'filterDesc' },
+          {
+            className: 'filterDesc'
+          },
           this.props.filter.type,
           '        : ',
           this.props.filter.query
@@ -17236,7 +17240,7 @@ function hashFromState(s) {
 }
 
 function stateFromStateAndHash(s, h) {
-  var shortened = h.replace(/^#/, '');
+  var shortened = h.replace(/^#/, '').replace(/\+/g, ' ');
   if (shortened === '') {
     return _extends({}, s, {
       filters: [[]]
@@ -17253,8 +17257,8 @@ function stateFromStateAndHash(s, h) {
 
 function stringFromFilter(f) {
   var query = f.query;
-  var replaced = query.replace(/&/g, '_and_').replace(/\|/g, '_or_').replace(/=/g, '_eq_');
-  return f.type + '=' + replaced;
+  var replaced = query.replace(/&/g, '_and_').replace(/\|/g, '_or_').replace(/\+/g, '_plus_').replace(/=/g, '_eq_');
+  return (f.type + '=' + replaced).replace(/ /g, '+');
 }
 
 function stringFromAndFilter(f) {
@@ -17275,7 +17279,7 @@ function filterFromString(s) {
       type = _s$split2[0],
       query = _s$split2[1];
 
-  var replaced = query.replace(/_and_/g, '&').replace(/_or_/g, '|').replace(/_eq_/g, '=');
+  var replaced = query.replace(/_and_/g, '&').replace(/_or_/g, '|').replace(/_plus_/g, '+').replace(/_eq_/g, '=');
 
   if (type === 'name') {
     return { type: 'name', query: replaced };
