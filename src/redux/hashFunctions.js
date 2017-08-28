@@ -30,7 +30,7 @@ function stringFromFilter(f: Filter): string {
   const replaced = query
     .replace(/&/g, '_and_')
     .replace(/\|/g, '_or_')
-    .replace(/\+/g, '_plus_');
+    .replace(/\+/g, '_plus_')
     .replace(/=/g, '_eq_');
   return (f.type + '=' + replaced).replace(/ /g, '+');
 }
