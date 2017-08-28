@@ -8,7 +8,7 @@ export function hashFromState(s: State): string {
 }
 
 export function stateFromStateAndHash(s: State, h: string): State {
-  const shortened = h.replace(/^#/, '');
+  const shortened = h.replace(/^#/, '').replace(/\+/g, ' ');
   if (shortened === '') {
     return {
       ...s,
@@ -30,8 +30,9 @@ function stringFromFilter(f: Filter): string {
   const replaced = query
     .replace(/&/g, '_and_')
     .replace(/\|/g, '_or_')
+    .replace(/\+/g, '_plus_');
     .replace(/=/g, '_eq_');
-  return f.type + '=' + replaced;
+  return (f.type + '=' + replaced).replace(/ /g, '+');
 }
 
 function stringFromAndFilter(f: AndFilter): string {
@@ -47,6 +48,7 @@ function filterFromString(s: string): Filter {
   const replaced = query
     .replace(/_and_/g, '&')
     .replace(/_or_/g, '|')
+    .replace(/_plus_/g, '+')
     .replace(/_eq_/g, '=');
 
   if (type === 'name') {
