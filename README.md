@@ -10,6 +10,6 @@ http://www.karelbilek.com/chronocomics/dist/#character=wolverine&character=spide
 
 Search for all books that have Steve Ditko credit
 
-http://www.karelbilek.com/chronocomics/dist/#credit=Steve%20Ditko
+[http://www.karelbilek.com/chronocomics/dist/#credit=Steve Ditko](http://www.karelbilek.com/chronocomics/dist/#credit=Steve Ditko)
 
 Note that the index ends up in 1991; from the time it was scraped from SMM
