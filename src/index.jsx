@@ -1,11 +1,27 @@
 /* @flow */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 
-import {VotingContainer} from './components/Voting';
+import {store} from './redux/store';
+import {IssuesContainer} from './components/Issues';
+import {FiltersContainer} from './components/Filters';
 
+const App =
+  <Provider
+    store={ store }
+  >
+    <div>
+      <FiltersContainer></FiltersContainer>
+      <IssuesContainer></IssuesContainer>
+    </div>
+  </Provider>;
+
+ReactDOM.render(App, document.getElementById('app'));
+
+/*
+import {VotingContainer} from './components/Voting';
 import reducer from './redux/reducer';
 
 import {
@@ -63,3 +79,4 @@ const App =
 
 ReactDOM.render(App, document.getElementById('app'));
 
+*/

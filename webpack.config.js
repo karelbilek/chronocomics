@@ -13,15 +13,6 @@ const config = {
       exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
-        presets: ['react','es2015'],
-        plugins: [
-          'transform-flow-strip-types',
-          'transform-class-properties',
-          'transform-object-rest-spread',
-          ['transform-builtin-extend', {globals: ['Error']}],
-          'add-module-exports',
-          'react-hot-loader/babel'
-        ],
         cacheDirectory: true,
       },
     }],

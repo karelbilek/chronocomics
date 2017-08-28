@@ -7,6 +7,8 @@
 ../node_modules/react/
 ../node_modules/react-router-dom/
 ../node_modules/redux/
+../node_modules/redux-action-buffer/
+../node_modules/redux-persist/
 ../node_modules/react-redux/
 
 [libs]

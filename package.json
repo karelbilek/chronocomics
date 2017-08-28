@@ -1,14 +1,13 @@
 {
-  "name": "reactshit_znova",
+  "name": "comics",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "flow": "flow status src",
+    "flow": "cd src && flow check",
     "eslint": "eslint src --ext .js --ext .jsx",
     "test": "npm run flow && npm run eslint",
-    "test-true": "( flow status src && eslint src ) || true",
-    "dev": "DEV_ENV=npmtest webpack-dev-server"
+    "dev": "webpack-dev-server"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -25,7 +24,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^6.10.1",
     "eslint-plugin-standard": "^2.1.1",
-    "flow-bin": "^0.42.0",
+    "flow-bin": "0.45.0",
     "react-hot-loader": "next",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2",
@@ -36,7 +35,8 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
-    "react-router-dom": "^4.0.0",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-action-buffer": "^1.1.0",
+    "redux-persist": "^4.8.0"
   }
 }
