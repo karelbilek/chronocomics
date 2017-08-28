@@ -12734,7 +12734,7 @@ function hashFromState(s) {
 }
 
 function stateFromStateAndHash(s, h) {
-  var shortened = decodeUri(h.replace(/^#/, '').replace(/\+/g, ' '));
+  var shortened = decodeURI(h.replace(/^#/, '').replace(/\+/g, ' '));
   if (shortened === '') {
     return _extends({}, s, {
       filters: [[]]
