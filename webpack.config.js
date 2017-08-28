@@ -3,8 +3,6 @@ const webpack = require('webpack');
 
 const config = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
   module: {
@@ -28,11 +26,7 @@ const config = {
   },
   devServer: {
     contentBase: './dist',
-    hot: true
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin
-  ]
 };
 
 if (process.env.DEV_ENV === 'npmtest') {
