@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "604e99dcabd56f2d5891"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "953737213f85eea67ba8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -17240,7 +17240,7 @@ function hashFromState(s) {
 }
 
 function stateFromStateAndHash(s, h) {
-  var shortened = h.replace(/^#/, '').replace(/\+/g, ' ');
+  var shortened = decodeUri(h.replace(/^#/, '').replace(/\+/g, ' '));
   if (shortened === '') {
     return _extends({}, s, {
       filters: [[]]

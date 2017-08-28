@@ -8,7 +8,7 @@ export function hashFromState(s: State): string {
 }
 
 export function stateFromStateAndHash(s: State, h: string): State {
-  const shortened = h.replace(/^#/, '').replace(/\+/g, ' ');
+  const shortened = decodeUri(h.replace(/^#/, '').replace(/\+/g, ' '));
   if (shortened === '') {
     return {
       ...s,
